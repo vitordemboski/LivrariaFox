@@ -13,6 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author usuario
  */
-public interface ClienteRepository {
+public interface ClienteRepository extends JpaRepository<Cliente, String>  {
   
 }

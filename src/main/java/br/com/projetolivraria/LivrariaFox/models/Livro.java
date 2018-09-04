@@ -7,38 +7,64 @@ package br.com.projetolivraria.LivrariaFox.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 /**
  *
  * @author usuario
  */
-@Entity
+
+@Entity(name = "Livro")
 public class Livro implements Serializable {
      private static final long serialVersionUID = 1L;
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column
     @NotEmpty
     private String titulo;
+    @Column
     @NotEmpty
     private String genero;
+    @Column
     @NotEmpty
     private String autor;
+    @Column
     @NotEmpty
     private float preco;
-    @NotEmpty
+    @Column
     private Date datapub;
+    @Column
     @NotEmpty
     private int idadeind;
+    @Column
     @NotEmpty 
     private String colecao;
-    @NotEmpty
+    @Column
     private byte capa;
+
+    public Livro() {
+    }
+
+    public Livro(long id, String titulo, String genero, String autor, float preco, Date datapub, int idadeind, String colecao, byte capa) {
+        this.id = id;
+        this.titulo = titulo;
+        this.genero = genero;
+        this.autor = autor;
+        this.preco = preco;
+        this.datapub = datapub;
+        this.idadeind = idadeind;
+        this.colecao = colecao;
+        this.capa = capa;
+    }
+    
+    
 
     public byte getCapa() {
         return capa;

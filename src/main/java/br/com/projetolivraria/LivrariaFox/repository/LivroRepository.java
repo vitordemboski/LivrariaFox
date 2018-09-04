@@ -9,11 +9,13 @@ import br.com.projetolivraria.LivrariaFox.models.Livro;
 import java.util.Date;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author usuario
  */
-public interface LivroRepository {
+@Repository
+public interface LivroRepository extends JpaRepository<Livro, Long> {
 
 }
