@@ -5,26 +5,18 @@
  */
 package br.com.projetolivraria.LivrariaFox.controller;
 
-import br.com.projetolivraria.LivrariaFox.models.Cliente;
-import br.com.projetolivraria.LivrariaFox.repository.ClienteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
- * @author usuario
+ * @author vitor.7716
  */
 @Controller
-public class LoginController {
-    
-    
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        return "login";
+public class DadosLivroController {
+        @RequestMapping(value = "/aparecerDados", method = RequestMethod.GET)
+    public String dados() {
+        return "pagina-livro";
     }
-    
-
 }

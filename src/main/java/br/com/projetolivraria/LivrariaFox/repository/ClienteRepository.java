@@ -14,5 +14,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author usuario
  */
 public interface ClienteRepository {
-        
+  
 }
