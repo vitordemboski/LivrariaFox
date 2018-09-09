@@ -6,23 +6,12 @@
 package br.com.projetolivraria.LivrariaFox.service;
 
 import br.com.projetolivraria.LivrariaFox.models.Cliente;
-import br.com.projetolivraria.LivrariaFox.repository.ClienteRepository;
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
- * @author vitor.7716
+ * @author usuario
  */
-public class ClienteService {
-     @Autowired
-    private ClienteRepository rc;
-    
-    public List<Cliente> findAll(){
-        return rc.findAll();
-    }
-    
-    public Cliente save(Cliente cliente){
-        return rc.saveAndFlush(cliente);
-    }
+public interface ClienteService {
+        public Cliente findByUsernameAndPassword(String username,String password);
+
 }

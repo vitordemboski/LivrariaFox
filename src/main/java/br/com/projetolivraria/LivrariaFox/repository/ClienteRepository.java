@@ -13,6 +13,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author usuario
  */
-public interface ClienteRepository extends JpaRepository<Cliente, String>  {
-  
+public interface ClienteRepository extends CrudRepository<Cliente, Long>  {
+        
+    public Cliente findByUsernameAndPassword(String username,String password);
 }
