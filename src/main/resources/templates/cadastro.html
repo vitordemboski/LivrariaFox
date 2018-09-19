@@ -43,7 +43,8 @@
     <div class="col-sm">
     </div>
     <div class="col-4">
-  <form>
+  <form th:action="@{/cadastrarUsuario}" th:object="${cliente}" method="POST">
+            <span th:text="${error}"></span>
     <center>
     <a href="/" style="color: white;"><img src="imagens/logo.png" class="logologin"></a>
     </center>
@@ -51,13 +52,13 @@
     <center>
     <h1 style="color: white;">Cadastro</h1>
     </center>
-    <input class="form-control" type="text" placeholder="Nome" name="nome"><br>
-    <input class="form-control" type="text" placeholder="Rg" name="rg"><br>
-    <input class="form-control" type="text" placeholder="Cpf" name="cpf"><br>
-    <input class="form-control" type="text" placeholder="Usuário" name="usuario"><br>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="senha"><br>
-    <input class="form-control" type="text" placeholder="Email" name="email"><br>
-    <input class="form-control" type="text" placeholder="Telefone" name="telefone">   
+    <input class="form-control"  th:field="*{nome}" type="text" placeholder="Nome" name="nome"><br>
+    <input class="form-control"  th:field="*{rg}" type="text" placeholder="Rg" name="rg"><br>
+    <input class="form-control"  th:field="*{cpf}" type="text" placeholder="Cpf" name="cpf"><br>
+    <input class="form-control"  th:field="*{usuario}" type="text" placeholder="Usuário" name="usuario"><br>
+    <input type="password"  th:field="*{senha}" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="senha"><br>
+    <input class="form-control"  th:field="*{email}" type="text" placeholder="Email" name="email"><br>
+    <input class="form-control"  th:field="*{telefone}" type="text" placeholder="Telefone" name="telefone">   
   </div>
   <button type="submit" class="btn btn-dark btn-block radius">Entrar</button>
 </form>
