@@ -8,11 +8,13 @@ package br.com.projetolivraria.LivrariaFox.repository;
 import br.com.projetolivraria.LivrariaFox.models.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author usuario
  */
-public interface FuncionarioRepository extends JpaRepository<Funcionario, String>{
+@Repository
+public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
 
 }

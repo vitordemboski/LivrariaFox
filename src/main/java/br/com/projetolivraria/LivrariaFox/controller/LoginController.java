@@ -31,10 +31,10 @@ public class LoginController {
         return "login";
     }
     
-    @RequestMapping(value = "/logar", method = RequestMethod.POST)
-    public String logar(@ModelAttribute("cliente") Cliente cliente, ModelMap modelMap, HttpSession session) {       
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String logar(@ModelAttribute("cliente") Cliente cliente, ModelMap modelMap, HttpSession session){       
         if (cs.findByUsernameAndPassword(cliente.getUsuario(), cliente.getSenha())!=null) {
-          session.setAttribute("username", cliente.getUsuario());
+          session.setAttribute("usuario", cliente.getUsuario());
             return "index"; 
         }else{
             modelMap.put("error", "Usuário invalido");

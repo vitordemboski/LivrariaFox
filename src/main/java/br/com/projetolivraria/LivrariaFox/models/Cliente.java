@@ -17,8 +17,7 @@ import javax.persistence.Id;
  * @author usuario
  */
 @Entity
-public class Cliente implements Serializable {
-     private static final long serialVersionUID = 1L;
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
