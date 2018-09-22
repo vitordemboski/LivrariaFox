@@ -45,21 +45,23 @@
     </div>
     <div class="col-4">
         <form th:action="@{/login}" th:object="${cliente}" method="POST">
-            <span th:text="${error}"> </span>
+            
     <center>
     <a href="/" style="color: white;"><img src="imagens/logo.png" class="logologin"></a>
     </center>
   <div class="form-group" style="padding-top: 100px;">
     <center>
     <h1 style="color: white;">Login</h1>
-    </center>
-    <input class="form-control" th:field="*{usuario}" type="text" placeholder="Usuário" name="usuario">
+    <span style="color: yellow ;" th:text="${error}"></span>
+    </center>   
+    <input class="form-control" th:field="*{usuario}" required="" type="text" placeholder="Usuário" name="usuario">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" th:field="*{senha}" id="exampleInputPassword1" placeholder="Senha" name="senha">
+    <input type="password" class="form-control" required="" th:field="*{senha}" id="exampleInputPassword1" placeholder="Senha" name="senha">
     <small id="emailHelp" class="form-text" style="color: white;">Não tem conta?? <a href="/cadastrarUsuario" style="color: blue;">Crie Uma!!</a></small>
   </div>
   <button type="submit" class="btn btn-dark btn-block radius">Entrar</button>
+  
 </form>
     </div>
     <div class="col-sm">

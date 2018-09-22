@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Livraria Fox - Index</title>
+	<title>Livraria Fox - Funcionários</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+        
     <style>
         .pesquisa{
 	width: 300px !important;
@@ -47,57 +47,52 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/" style="color: white;">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="painel-funcionario.htm" style="color: white;">Home <span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;"> 
-          Categorias
+          Cadastros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="livros-acao.html">Ação</a>
-          <a class="dropdown-item" href="livros-comedia.html">Comédia</a>
-          <a class="dropdown-item" href="livros-romance.html">Romance</a>
-          <a class="dropdown-item" href="livros-suspense.html">Suspense</a>
-          <a class="dropdown-item" href="livros-terror.html">Terror</a>
-          <a class="dropdown-item" href="livros-investigacao.html">Investigação</a>
+          <a class="dropdown-item" href="cadastro-admin.htm">Cadastrar Novo Admin</a>
+          <a class="dropdown-item" href="cadastro-editor.htm">Cadastrar Novo Editor</a>
         </div>
       </li>
-         <form class="form-inline my-2 my-lg-0">
-           <input class="form-control mr-form-2 pesquisa radius" type="search" placeholder="Pesquisa" aria-label="Search">
-           <button class="btn btn-outline-dark my-2 my-sm-0 radius" type="submit">Pesquisar</button>
-         </form>         
-    </ul> 
-      <form name="form" action="/login">
-          <input type="submit" class="btn btn-dark my-2 my-sm-0 radius" value="Login">
-      </form>
-      <form class="form-inline my-2 my-lg-0" action="/loginFunc" >
-           <button class="btn btn-dark my-2 my-sm-0 radius" type="submit">Funcionários</button>
-        </form>
-      
+                <li class="nav-item active" style="margin-left: 820px;">
+        <a class="nav-link">Olá, @VARIAVEL</a>
+      </li>        
+    </ul>   
+        <form class="form-inline my-2 my-lg-0" action="index.htm" method="POST">
+           <button class="btn btn-dark my-2 my-sm-0 radius" type="submit">Sair</button>
+    </form>
   </div>
 </nav>
 <div class="container">
   <div class="row">
-  	<div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/1.jpg"></a>      
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/2.jpg"></a>
+    <div class="col-sm">
+    </div>
+    <div class="col-4">
+  <form th:object="${livro}" th:action="@{/cadastrarLivro}"
+        method="POST" enctype="multipart/form-data">
+  <div class="form-group" style="padding-top: 10px;">
+    <center>
+    <h3>Cadastrar Livro</h3>
+    </center>
+    <input class="form-control" type="text" th:field="*{titulo}" placeholder="Título" name="titulo" required=""><br>
+    <label class="">Ano Publicação</label>
+    <input class="form-control" type="date" th:field="*{datapub}" placeholder="Ano Publicação" name="anopublicacao" required=""><br>
+    <input class="form-control" type="text" th:field="*{idadeind}" placeholder="Idade Indicativa" name="idadeindicativa" required=""><br>
+    <input class="form-control" type="text" th:field="*{genero}" placeholder="Gênero" name="genero" required=""><br>
+    <input class="form-control" type="text" th:field="*{autor}" placeholder="Autor" name="autor" required=""><br>
+    <input class="form-control" type="text" th:field="*{preco}" placeholder="Preço" name="preco" required=""><br>
+    Adicionar foto do livro: <input type="file" name="imagem" th:field="*{capa}" class="form-control">
+       
+
+  </div>
+  <button type="submit" class="btn btn-dark btn-block radius">Cadastrar</button>
+</form>
     </div>
     <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/1.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/2.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/1.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/2.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/3.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/4.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/5.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/6.jpg"></a>
-    </div>
   </div>
 </div>
 </body>

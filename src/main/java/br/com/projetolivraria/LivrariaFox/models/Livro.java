@@ -7,11 +7,13 @@ package br.com.projetolivraria.LivrariaFox.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import javassist.bytecode.ByteArray;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -26,33 +28,33 @@ public class Livro implements Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+  
     @NotEmpty
     private String titulo;
-    @Column
+
     @NotEmpty
     private String genero;
-    @Column
+
     @NotEmpty
     private String autor;
-    @Column
+
     @NotEmpty
     private float preco;
-    @Column
+    @NotEmpty
     private Date datapub;
-    @Column
     @NotEmpty
     private int idadeind;
-    @Column
+
     @NotEmpty 
     private String colecao;
-    @Column
-    private byte capa;
+    @NotEmpty
+    @Lob
+    private byte[] capa;
 
     public Livro() {
     }
 
-    public Livro(long id, String titulo, String genero, String autor, float preco, Date datapub, int idadeind, String colecao, byte capa) {
+    public Livro(long id, String titulo, String genero, String autor, float preco, Date datapub, int idadeind, String colecao, byte[] capa) {
         this.id = id;
         this.titulo = titulo;
         this.genero = genero;
@@ -66,11 +68,11 @@ public class Livro implements Serializable {
     
     
 
-    public byte getCapa() {
+    public byte[] getCapa() {
         return capa;
     }
 
-    public void setCapa(byte capa) {
+    public void setCapa(byte[] capa) {
         this.capa = capa;
     }
     

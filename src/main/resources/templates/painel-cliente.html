@@ -7,6 +7,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+    .pesquisa{
+	width: 300px !important;
+}
+.logo{
+	width: 50px;
+	height: 50px;
+}
+.radius{
+	border-radius: 20px;
+}
+.fundonav{
+	background: linear-gradient(to right, red , yellow);
+}
+.tamanho{
+	width: 187px;
+	height: 270px;
+	padding: 5px;
+}
+.livro:hover { 
+	border:1px solid white;
+}
+.logologin{
+	width: 100px;
+	height: 100px;
+
+}    
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fundonav">
@@ -34,7 +62,7 @@
           <a class="dropdown-item" href="livros-infantis.html">Infantil</a>
         </div>
       </li>
-         <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" >
            <input class="form-control mr-form-2 pesquisa radius" type="search" placeholder="Pesquisa" aria-label="Search">
            <button class="btn btn-outline-dark my-2 my-sm-0 radius" type="submit">Pesquisar</button>
          </form>
@@ -42,7 +70,7 @@
         <a class="nav-link">Olá, @VARIAVEL</a>
       </li>        
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="index.htm" method="POST">
+    <form class="form-inline my-2 my-lg-0" action="/PaginaPrincipal">
            <button class="btn btn-dark my-2 my-sm-0 radius" type="submit">Sair</button>
     </form>
   </div>

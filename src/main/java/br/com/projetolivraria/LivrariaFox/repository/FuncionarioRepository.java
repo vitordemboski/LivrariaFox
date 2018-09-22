@@ -5,6 +5,7 @@
  */
 package br.com.projetolivraria.LivrariaFox.repository;
 
+import br.com.projetolivraria.LivrariaFox.models.Cliente;
 import br.com.projetolivraria.LivrariaFox.models.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
@@ -16,5 +17,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long>{
-
+public  Funcionario findByUsuarioAndSenha(String usuario,String senha);  
 }

@@ -23,7 +23,6 @@ public class ClienteService {
     private ClienteRepository rc;
 
     public Cliente findByUsernameAndPassword(String usuario, String senha) {
-
         return rc.findByUsuarioAndSenha(usuario, senha);
     }
     public Iterable<Cliente> findAll(){

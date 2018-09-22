@@ -9,12 +9,15 @@ import br.com.projetolivraria.LivrariaFox.models.Livro;
 import br.com.projetolivraria.LivrariaFox.repository.LivroRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author vitor.7716
  */
-
+@Service("livroService")
+@Transactional
 public class LivroService {
     @Autowired
     private LivroRepository rc;
