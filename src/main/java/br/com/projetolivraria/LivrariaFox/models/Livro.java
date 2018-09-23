@@ -8,14 +8,17 @@ package br.com.projetolivraria.LivrariaFox.models;
 import java.io.Serializable;
 import java.util.Date;
 import javassist.bytecode.ByteArray;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -23,8 +26,8 @@ import javax.validation.constraints.NotEmpty;
  */
 
 @Entity
-public class Livro implements Serializable {
-     private static final long serialVersionUID = 1L;
+public class Livro {
+
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -41,17 +44,20 @@ public class Livro implements Serializable {
     @NotEmpty
     private float preco;
     @NotEmpty
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date datapub;
     @NotEmpty
     private int idadeind;
 
     @NotEmpty 
     private String colecao;
-    @NotEmpty
+   
     @Lob
+    @Basic(fetch=FetchType.LAZY)
     private byte[] capa;
 
     public Livro() {
+        
     }
 
     public Livro(long id, String titulo, String genero, String autor, float preco, Date datapub, int idadeind, String colecao, byte[] capa) {

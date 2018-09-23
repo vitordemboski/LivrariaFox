@@ -58,8 +58,32 @@
     </form>
   </div>
 </nav>
-    <form action="/cadastrarLivro">
-       <button class="btn btn-dark my-2 my-sm-0 radius"  type="submit">Cadastrar Livro</button> 
-    </form>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-4">
+  <form th:action="@{/cadastrarLivro}" th:object="${livro}" method="POST" enctype="multipart/form-data">
+      <span th:text="${error}"></span>
+  <div class="form-group" style="padding-top: 10px;">
+    <center>
+    <h3>Cadastrar Livro</h3>
+    </center>
+    <input class="form-control" type="text" th:field="*{titulo}"   placeholder="Título" name="titulo" required=""><br>
+    <input class="form-control" type="text" th:field="*{datapub}"  placeholder="Ano Publicação" name="anopublicacao" required=""><br>
+    <input class="form-control" type="text" th:field="*{idadeind}" placeholder="Idade Indicativa" name="idadeindicativa" required=""><br>
+    <input class="form-control" type="text" th:field="*{genero}"  placeholder="Gênero" name="genero" required=""><br>
+    <input class="form-control" type="text" th:field="*{autor}"  placeholder="Autor" name="autor" required=""><br>
+    <input class="form-control" type="text" th:field="*{preco}"  placeholder="Preço" name="preco" required=""><br>
+    <input class="form-control" type="text" th:field="*{colecao}"  placeholder="Coleção" name="colecao" required=""><br>
+    <input type="file" name="imagem" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-dark btn-block radius">Cadastrar</button>
+</form>
+    </div>
+    <div class="col-sm">
+  </div>
+</div>
+</div>   
 </body>
 </html>

@@ -7,6 +7,7 @@ package br.com.projetolivraria.LivrariaFox.controller;
 
 import br.com.projetolivraria.LivrariaFox.models.Cliente;
 import br.com.projetolivraria.LivrariaFox.models.Funcionario;
+import br.com.projetolivraria.LivrariaFox.models.Livro;
 import br.com.projetolivraria.LivrariaFox.repository.ClienteRepository;
 import br.com.projetolivraria.LivrariaFox.service.ClienteService;
 import br.com.projetolivraria.LivrariaFox.service.FuncionarioService;
@@ -55,13 +56,13 @@ public class LoginController {
     public String logarFunc(@ModelAttribute("funcionario") Funcionario funcionario, ModelMap modelMap, HttpSession session){       
         if (fs.findByUsernameAndPassword(funcionario.getUsuario(), funcionario.getSenha())!=null) {
           session.setAttribute("funcionario", funcionario.getUsuario());
-            return "painel-funcionario-admin"; 
+            return "painel-funcionario-editor"; 
         }else{
             modelMap.put("error", "Usuário invalido");
          return "login-funcionarios";
         }
-      
     }
+    
         @RequestMapping(value = "/PaginaPrincipal")
     public String sair( ) {
         return "index";
