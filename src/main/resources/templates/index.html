@@ -62,7 +62,7 @@
           <a class="dropdown-item" href="livros-investigacao.html">Investigação</a>
         </div>
       </li>
-         <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0" action="/todos">
            <input class="form-control mr-form-2 pesquisa radius" type="search" placeholder="Pesquisa" aria-label="Search">
            <button class="btn btn-outline-dark my-2 my-sm-0 radius" type="submit">Pesquisar</button>
          </form>         
@@ -76,27 +76,10 @@
       
   </div>
 </nav>
-<div class="container">
-  <div class="row">
+<div th:each="livro : ${livro}" class="container">
+  <div class="row" >
   	<div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/1.jpg"></a>      
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/2.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/1.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/2.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/1.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/2.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/3.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/4.jpg"></a>
-    </div>
-    <div class="col-sm">
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/5.jpg"></a>
-      <a href="/aparecerDados" class=""><img class="tamanho livro" src="imagens/6.jpg"></a>
+      <a href="/aparecerDados" class=""><img class="tamanho livro" src="*${livro.capa}"></a>      
     </div>
   </div>
 </div>

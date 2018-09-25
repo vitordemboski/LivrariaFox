@@ -5,19 +5,16 @@
  */
 package br.com.projetolivraria.LivrariaFox.models;
 
-import java.io.Serializable;
 import java.util.Date;
-import javassist.bytecode.ByteArray;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -32,24 +29,24 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
   
-    @NotEmpty
+    @NotNull
     private String titulo;
 
-    @NotEmpty
+    @NotNull
     private String genero;
 
-    @NotEmpty
+    @NotNull
     private String autor;
 
-    @NotEmpty
-    private float preco;
-    @NotEmpty
+    @NotNull
+    private double preco;
+    @NotNull
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date datapub;
-    @NotEmpty
+    @NotNull
     private int idadeind;
 
-    @NotEmpty 
+    @NotNull 
     private String colecao;
    
     @Lob
@@ -60,7 +57,7 @@ public class Livro {
         
     }
 
-    public Livro(long id, String titulo, String genero, String autor, float preco, Date datapub, int idadeind, String colecao, byte[] capa) {
+    public Livro(long id, String titulo, String genero, String autor, double preco, Date datapub, int idadeind, String colecao, byte[] capa) {
         this.id = id;
         this.titulo = titulo;
         this.genero = genero;
@@ -106,11 +103,11 @@ public class Livro {
         this.autor = autor;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
