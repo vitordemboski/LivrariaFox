@@ -39,7 +39,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fundonav">
-  <a class="navbar-brand" href="/" style="color: white;"><img src="imagens/logo.png" class="logo">LivrariaFox</a>
+  <a class="navbar-brand" href="/" style="color: white;"><img src="logo.png" class="logo">LivrariaFox</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -78,10 +78,11 @@
 <div th:each="livro : ${livro}" class="container">
   <div class="row" >
   	<div class="col-sm">
-            <a href="/aparecerDados" class=""><img src="image" class="tamanho livro" ></a>
-            <!--<a th:href="${(#mvc.url('EC#detalhesLivro').arg(0, livro.id)).build()}">--><span th:text = "${livro.titulo}"></span><!--</a>-->
+          <a> <!-- th:href="${(#mvc.url('EC#detalhesLivro').arg(0, livro.id)).build()}">--><img src="image" class="tamanho livro" ></a>
+           <span th:text = "${livro.titulo}"></span>
         </div>
   </div>
 </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </body>
 </html>

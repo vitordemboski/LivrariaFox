@@ -42,13 +42,9 @@ public class IndexController {
         @Autowired
        private LivroService ls;
         
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(ModelMap modelMap) {
-        modelMap.put("livro", new Livro());
-        return "index";
-    }
+
     
-    @RequestMapping(value = "/todos", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView listaLivros(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws FileNotFoundException, IOException {
         ModelAndView mv = new ModelAndView("index"); // é utilizada para especificar a view que será renderizada e quais os dados ela utilizará para isso.  
         List<Livro> livros = ls.findAll();
@@ -62,11 +58,5 @@ public class IndexController {
         mv.addObject("livro", livros);
         return mv;
     }
-     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView detalhesLivro(@PathVariable("id") long codigo) {
-        Livro livro = ls.fieldByLivro(codigo);
-        ModelAndView mv = new ModelAndView("pagina-livro");
-        mv.addObject("livro", livro);
-        return mv;
-    }
+   
 }

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -23,19 +24,19 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @NotEmpty
+    @NotNull
     private String nome;
-    @NotEmpty
+    @NotNull
     private String rg;
-    @NotEmpty
+    @NotNull
     private String cpf;
-    @NotEmpty
+    @NotNull
     private String usuario;
-    @NotEmpty
+    @NotNull
     private String senha;
-    @NotEmpty
+    @NotNull
     private String email;
-    @NotEmpty
+    @NotNull
     private int telefone;
 
     public Cliente(String nome, String rg, String cpf, String usuario, String senha, String email, int telefone) {

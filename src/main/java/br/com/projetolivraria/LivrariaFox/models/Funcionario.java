@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -23,21 +24,21 @@ public class Funcionario implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    private long id;
-       @NotEmpty
+       @NotNull
    private String cargo;
-        @NotEmpty
+       @NotNull
    private String nome;
-         @NotEmpty
+         @NotNull
    private String rg;
-          @NotEmpty
+          @NotNull
    private String cpf;
-           @NotEmpty
+           @NotNull
    private String usuario;
-            @NotEmpty
+            @NotNull
    private String senha;
-             @NotEmpty
+            @NotNull
    private String email;
-              @NotEmpty
+              @NotNull
    private int telefone;
 
 
