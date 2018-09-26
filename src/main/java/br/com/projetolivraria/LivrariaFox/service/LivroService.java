@@ -29,5 +29,8 @@ public class LivroService {
     public Livro save(Livro livro){
         return rc.saveAndFlush(livro);
     }
+    public Livro fieldByLivro(long id){
+        return rc.findById(id);
+    }
     
 }

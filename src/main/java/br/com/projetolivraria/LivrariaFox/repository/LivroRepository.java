@@ -18,4 +18,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Long> {
 
+    public Livro findById(long id);
+
 }
