@@ -15,8 +15,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,16 +48,19 @@ public class IndexController {
 
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView listaLivros(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws FileNotFoundException, IOException {
+    public ModelAndView listaLivros(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws FileNotFoundException, IOException, SQLException {
         ModelAndView mv = new ModelAndView("index"); // é utilizada para especificar a view que será renderizada e quais os dados ela utilizará para isso.  
         List<Livro> livros = ls.findAll();
-       // response.setContentType("image/jpeg");
-        // ServletOutputStream outputStream = response.getOutputStream();
+       /*  response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setContentType("image/bmp");
+        /* Stream de saida... */
+       
+       // BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
         for (Livro livro : livros) {
-          //  outputStream.write(livro.getCapa());
-           // outputStream.close();
+
         }
-        //Iterable é uma interface que determina que uma coleção pode ter seus elementos alcançados por uma estrutura foreach
+        mv.addObject(modelMap);
         mv.addObject("livro", livros);
         return mv;
     }

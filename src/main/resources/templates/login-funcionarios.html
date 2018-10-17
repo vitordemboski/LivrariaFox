@@ -7,6 +7,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+    .pesquisa{
+	width: 300px !important;
+}
+.logo{
+	width: 50px;
+	height: 50px;
+}
+.radius{
+	border-radius: 20px;
+}
+.fundonav{
+	background: linear-gradient(to right, red , yellow);
+}
+.tamanho{
+	width: 187px;
+	height: 270px;
+	padding: 5px;
+}
+.livro:hover { 
+	border:1px solid white;
+}
+.logologin{
+	width: 100px;
+	height: 100px;
+
+}    
+    </style>
 </head>
 <body style="background: linear-gradient(to right, red , yellow);">
 
@@ -17,7 +45,7 @@
     <div class="col-4">
   <form th:action="@{/loginFunc}" th:object="${funcionario}" method="POST">
     <center>
-    <a href="/" style="color: white;"><img src="imagens/logo.png" class="logologin"></a>
+    <a href="/" style="color: white;"><img th:src="@{images/logo.png}" class="logologin"></a>
     </center>
   <div class="form-group" style="padding-top: 80px;">
     <center>

@@ -46,7 +46,7 @@
   <form th:action="@{/cadastrarUsuario}" th:object="${cliente}" method="POST">
             <span th:text="${error}"></span>
     <center>
-    <a href="/" style="color: white;"><img src="imagens/logo.png" class="logologin"></a>
+    <a href="/" style="color: white;"><img th:src="@{images/logo.png}" class="logologin"></a>
     </center>
   <div class="form-group" style="padding-top: 20px;">
     <center>

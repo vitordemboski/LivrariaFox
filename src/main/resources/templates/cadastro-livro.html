@@ -39,7 +39,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fundonav">
-  <a class="navbar-brand" href="painel-funcionario-editor.htm" style="color: white;"><img src="imagens/logo.png" class="logo">LivrariaFox</a>
+  <a class="navbar-brand" href="painel-funcionario-editor.htm" style="color: white;"><img th:src="@{images/logo.png}" class="logo">LivrariaFox</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,7 +53,7 @@
         <a class="nav-link">Olá, @VARIAVEL</a>
       </li>   
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="index.htm" method="POST">
+    <form class="form-inline my-2 my-lg-0" action="/">
            <button class="btn btn-dark my-2 my-sm-0 radius" type="submit">Sair</button>
     </form>
   </div>

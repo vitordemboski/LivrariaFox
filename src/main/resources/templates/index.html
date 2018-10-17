@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Livraria Fox - Index</title>
+       
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -39,7 +40,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fundonav">
-  <a class="navbar-brand" href="/" style="color: white;"><img src="logo.png" class="logo">LivrariaFox</a>
+  <a class="navbar-brand" href="/" style="color: white;"><img th:src="@{images/logo.png}" class="logo">LivrariaFox</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -66,7 +67,7 @@
            <input class="form-control mr-form-2 pesquisa radius" type="search" placeholder="Pesquisa" aria-label="Search">
            <button class="btn btn-outline-dark my-2 my-sm-0 radius" type="submit">Pesquisar</button>
          </form>         
-    </ul> 
+    </ul>
       <form name="form" action="/login">
           <input type="submit" class="btn btn-dark my-2 my-sm-0 radius" value="Login">
       </form>
@@ -78,7 +79,7 @@
 <div th:each="livro : ${livro}" class="container">
   <div class="row" >
   	<div class="col-sm">
-          <a> <!-- th:href="${(#mvc.url('EC#detalhesLivro').arg(0, livro.id)).build()}">--><img src="image" class="tamanho livro" ></a>
+          <a> <!-- th:href="${(#mvc.url('EC#detalhesLivro').arg(0, livro.id)).build()}">--><img src="" class="tamanho livro" ></a>
            <span th:text = "${livro.titulo}"></span>
         </div>
   </div>
