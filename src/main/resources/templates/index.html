@@ -64,7 +64,7 @@
         </div>
       </li>
       <form class="form-inline my-2 my-lg-0" action="/carrega" >
-           <input class="form-control mr-form-2 pesquisa radius" name='titulo' type="search" placeholder="Pesquisa" aria-label="Search">
+           <input class="form-control mr-form-2 pesquisa radius" th:text="*{titulo}" type="search" placeholder="Pesquisa" aria-label="Search">
            <button class="btn btn-outline-dark my-2 my-sm-0 radius" type="submit">Pesquisar</button>
          </form>         
     </ul>
