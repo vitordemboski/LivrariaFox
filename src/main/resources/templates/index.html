@@ -63,8 +63,8 @@
           <a class="dropdown-item" href="livros-investigacao.html">Investigação</a>
         </div>
       </li>
-      <form class="form-inline my-2 my-lg-0" action="/todos">
-           <input class="form-control mr-form-2 pesquisa radius" type="search" placeholder="Pesquisa" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" action="/carrega" >
+           <input class="form-control mr-form-2 pesquisa radius" name='titulo' type="search" placeholder="Pesquisa" aria-label="Search">
            <button class="btn btn-outline-dark my-2 my-sm-0 radius" type="submit">Pesquisar</button>
          </form>         
     </ul>
@@ -79,11 +79,10 @@
 <div th:each="livro : ${livro}" class="container">
   <div class="row" >
   	<div class="col-sm">
-          <a> <!-- th:href="${(#mvc.url('EC#detalhesLivro').arg(0, livro.id)).build()}">--><img src="" class="tamanho livro" ></a>
+            <a ><img src="" class="tamanho livro" ></a>
            <span th:text = "${livro.titulo}"></span>
         </div>
   </div>
 </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-</body>
+</body>         
 </html>

@@ -78,20 +78,22 @@
   	<div class="col-sm">
       <a><img class="tamanho2" src="imagens/livros/2.jpg"></a>
     </div>
+      <form th:object="${livro}" >
     <div class="col-5">
       <label class="espaco">Título</label>
-        <input class="form-control" type="text" placeholder="" value="VARIAVEL" disabled="">
+      <input class="form-control" type="text" placeholder="" th:field="*{titulo}" disabled="">
       <label class="espaco">Ano Publicação</label>
-        <input class="form-control" type="text" placeholder="" value="VARIAVEL" disabled="">
+        <input class="form-control" type="text" placeholder="" th:field="*{datapub}" disabled="">
       <label class="espaco">Idade Indicativa</label>
-        <input class="form-control" type="text" placeholder="" value="VARIAVEL" disabled="">
+        <input class="form-control" type="text" placeholder="" th:field="*{idadeind}" disabled="">
       <label class="espaco">Gênero</label>
-        <input class="form-control" type="text" placeholder="" value="VARIAVEL" disabled="">
+        <input class="form-control" type="text" placeholder="" th:field="*{genero}" disabled="">
       <label class="espaco">Autor</label>
-        <input class="form-control" type="text" placeholder="" value="VARIAVEL" disabled="">
+        <input class="form-control" type="text" placeholder="" th:field="*{autor}" disabled="">
       <label class="espaco">Preço</label><br>
-        <label class="preco"><b>R$ VARIAVEL</b></label>  
+        <label class="preco" th:field="*{preco}"></label>  
     </div>
+          </form>
     <div class="col-sm">
     </div>
   </div>

@@ -8,6 +8,7 @@ package br.com.projetolivraria.LivrariaFox.service;
 import br.com.projetolivraria.LivrariaFox.models.Livro;
 import br.com.projetolivraria.LivrariaFox.repository.LivroRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,8 +30,11 @@ public class LivroService {
     public Livro save(Livro livro){
         return rc.saveAndFlush(livro);
     }
-    public Livro fieldByLivro(long id){
+    public Optional<Livro> findByCodigo(long id){
         return rc.findById(id);
+    }
+    public  List<Livro> findByTitulo(String titulo){
+        return rc.findByTitulo(titulo);
     }
     
 }

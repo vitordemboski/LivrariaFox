@@ -8,6 +8,7 @@ package br.com.projetolivraria.LivrariaFox.controller;
 import br.com.projetolivraria.LivrariaFox.models.Cliente;
 import br.com.projetolivraria.LivrariaFox.models.Livro;
 import br.com.projetolivraria.LivrariaFox.service.LivroService;
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -51,16 +53,36 @@ public class IndexController {
     public ModelAndView listaLivros(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws FileNotFoundException, IOException, SQLException {
         ModelAndView mv = new ModelAndView("index"); // é utilizada para especificar a view que será renderizada e quais os dados ela utilizará para isso.  
         List<Livro> livros = ls.findAll();
-       /*  response.setHeader("Pragma", "no-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setContentType("image/bmp");
-        /* Stream de saida... */
-       
-       // BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+        
+      /*  String path = request.getServletContext().getRealPath("img")+ File.separator;
+        
+        File files = new File(path);
+        response.setContentType("image/jpeg");
+                     File f = new File(path+livro.getTitulo());
+             BufferedImage bi = ImageIO.read(f);
+             OutputStream out = response.getOutputStream();
+             ImageIO.write(bi,"jpg", out);
+             out.close();         
+             modelMap.put("caminho"+livro.getTitulo(), f.getPath()); */
         for (Livro livro : livros) {
-
+          
         }
+
         mv.addObject(modelMap);
+      
+        mv.addObject("livro", livros);
+        return mv;
+    }
+        
+    @RequestMapping(value = "/carrega", method = RequestMethod.GET)
+    public ModelAndView listaCarregaLivro(@PathVariable("titulo") String titulo,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws FileNotFoundException, IOException, SQLException {
+        ModelAndView mv = new ModelAndView("index"); // é utilizada para especificar a view que será renderizada e quais os dados ela utilizará para isso.  
+        List<Livro> livros = ls.findByTitulo(titulo);
+        for (Livro livro : livros) {
+          
+        }  
+        mv.addObject(modelMap);
+      
         mv.addObject("livro", livros);
         return mv;
     }

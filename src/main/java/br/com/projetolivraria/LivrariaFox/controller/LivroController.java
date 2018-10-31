@@ -9,6 +9,7 @@ import br.com.projetolivraria.LivrariaFox.models.Cliente;
 import br.com.projetolivraria.LivrariaFox.models.Livro;
 import br.com.projetolivraria.LivrariaFox.service.LivroService;
 import java.io.IOException;
+import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -33,10 +34,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LivroController {
      @Autowired
     private LivroService cs;
+   
      
       @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView detalhesLivro(@PathVariable("id") long codigo) {
-        Livro livro = cs.fieldByLivro(codigo);
+        Optional<Livro> livro = cs.findByCodigo(codigo);
         ModelAndView mv = new ModelAndView("detalhesLivro");
         mv.addObject("livro", livro);
         return mv;
